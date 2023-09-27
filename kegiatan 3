@@ -1,0 +1,28 @@
+def penilaian(uts, uas):
+    return (uts + uas) / 2
+
+# Tambahkan Fungsi Untuk Menghitung Nilai Akhir Semua Mahasiswa
+def nilai_akhir_semua_mahasiswa(data_mahasiswa):
+    nilai_akhir = {}
+    for nama, nilai in data_mahasiswa.items():
+        nilai_uts, nilai_uas = nilai['uts'], nilai['uas']
+        nilai_akhir[nama] = penilaian(nilai_uts, nilai_uas)
+    return nilai_akhir
+
+def tampilkan_nilai_akhir(data_nilai_akhir):
+    print("Hasil Nilai Akhir Mahasiswa:")
+    for nama, nilai in data_nilai_akhir.items():
+        print(f"Nama: {nama}\tNilai Akhir: {nilai:.2f}")
+
+def main():
+    data_mahasiswa = {
+        'Mamat': {'uts': 75, 'uas': 100},
+        'Wawan': {'uts': 75, 'uas': 75},
+        'Budi': {'uts': 60, 'uas': 45},
+    }
+
+    data_nilai_akhir = nilai_akhir_semua_mahasiswa(data_mahasiswa)
+    tampilkan_nilai_akhir(data_nilai_akhir)
+
+if _name_ == "_main_":
+    main()
